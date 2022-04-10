@@ -1,0 +1,23 @@
+<!--
+    link : 22.html
+    description : functools , wraps, create wraparound func
+    stack : python 
+
+-->
+<plaintext>
+
+
+    functions wraps
+
+    from functools import wraps
+
+
+    def is_logged_in(f):
+	@wraps(f)
+	def wrap(*args, **kwargs):
+        // code
+	return wrap
+
+    //when use
+    @app.route('/adminDash')
+    @is_logged_in

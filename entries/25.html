@@ -1,0 +1,76 @@
+<!--
+    link : 25.html
+    description : fastapi intro
+    stack : fastapi 
+
+-->
+<plaintext>
+
+
+    import fastapi import FastAPI
+
+    app = FastAPI()
+
+    @app.get("/")
+    def home() :
+        return { "data" : "text"}
+
+
+------------------------------------------------------------------------------
+
+    from fastapi import FastAPI
+    import uvicorn
+    app = FastAPI(docs_url="/documentation", redoc_url=None)
+    
+    
+    @app.get("/")
+    async def root():
+        return {"message": "Hello World"}
+
+    @app.get("/book/{id}")
+    async def book(id : int):
+        return {"message": id}
+    
+    
+    if __name__ == "__main__":
+    # Use this for debugging purposes only
+        uvicorn.run(app, host="0.0.0.0", port=8001, log_level="debug")
+        
+        
+------------------------------------------------------------------------------
+        
+
+
+    Path
+    FastAPI has path module
+
+    from fastapi import FastAPI, Path
+
+    def get_item(item_id:int = Path(description="bla bla bla"))
+
+
+------------------------------------------------------------------------------
+
+query parameter
+
+from typing import Optional
+
+@app.get("/book/{id}")
+async def book(id : int):
+    return {"message": id}
+
+    int=integer
+    str=strength
+    bool : boolean
+    Optional = not mandatory
+
+------------------------------------------------------------------------------
+
+Request body 
+
+from pydantic import BaseModel
+
+class Blog(BaseModel):
+    title : str
+    body : str 
+    published : Optional

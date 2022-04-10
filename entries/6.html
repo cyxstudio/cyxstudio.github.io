@@ -1,0 +1,25 @@
+<!--
+    link : 6.html
+    description : docker command and sample
+    stack : docker 
+
+-->
+<plaintext>
+
+    Docker command
+
+    docker create - create new container
+    docker diff - inspect changes
+    docker events - get real time events
+    docker exec - run a command in container
+    docker commit -create new image
+    docker ps - list containers
+
+    Docker example
+
+    FROM python : 3.9  or / node : 12
+    ENV : Port = 8800
+    COPY :  <-- takes two arguments, copy from source to destination
+    RUN : <-- run command npm install
+    WORKDIR : /app <-- directory of app
+    CMD : what to run in cmd , python manage.py runserver  

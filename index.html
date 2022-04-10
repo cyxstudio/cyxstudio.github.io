@@ -6,23 +6,49 @@
     <body>
         <script>
             var index = [
-                { "link" : "simple flask app.html" , "description" : "simple flask app"},
-                { "link" : "flask cli.html" , "description" : "flask CLI"},
-                { "link" : "flask dynamic routing.html" , "description" : "flask dynamic routing"},
-                { "link" : "4" , "description" : "4"},
-                { "link" : "5" , "description" : "5"},
-                { "link" : "" , "description" : "6"},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
-                { "link" : "" , "description" : ""},
+                { "link" : "simple flask app.html" , "description" : "simple flask app", "stack" : "flask"},
+                { "link" : "flask cli.html" , "description" : "flask CLI", "stack" : "flask"},
+                { "link" : "flask dynamic routing.html" , "description" : "flask dynamic routing", "stack" : "flask"},
+                { "link" : "4.html" , "description" : "pip command", "stack":"python" },
+                { "link" : "5.html" , "description" : "config", "stack":"flask"},
+                { "link" : "6.html" , "description" : "docker command", "stack":"docker"},
+                { "link" : "7.html" , "description" : "python class", "stack":"python"},
+                { "link" : "8.html" , "description" : "react  useState", "stack":"react"},
+                { "link" : "9.html" , "description" : "react  useMemo", "stack":"react"},
+                { "link" : "10.html" , "description" : "python import module", "stack":"python"},
+                { "link" : "11.html" , "description" : "python path", "stack":"python"},
+                { "link" : "12.html" , "description" : "python __init__.py", "stack":"python"},
+                { "link" : "13.html" , "description" : "python subpackages", "stack":"python"},
+                { "link" : "14.html" , "description" : "python request", "stack":"python"},
+                { "link" : "15.html" , "description" : "git command", "stack":"git"},
+                { "link" : "16.html" , "description" : "pip", "stack":"pip"},
+                { "link" : "17.html" , "description" : "set, list, dictionary, tuple, ", "stack":"python"},
+                { "link" : "18.html" , "description" : "create route file", "stack":"flask"},
+                { "link" : "19.html" , "description" : "create restful api, flask_restful", "stack":"flask"},
+                { "link" : "20.html" , "description" : "built-in variable double underscore __main__", "stack":"flask"},
+                { "link" : "21.html" , "description" : "virtual environment", "stack":"python"},
+                { "link" : "22.html" , "description" : "functools , wraps, create wraparound func", "stack":"python"},
+                { "link" : "23.html" , "description" : "flask package, flash, redirect", "stack":"flask"},
+                { "link" : "24.html" , "description" : "python datetime", "stack":"python"},
+                { "link" : "25.html" , "description" : "fastapi intro", "stack":"fastapi"},
+                { "link" : "26.html" , "description" : "react custom hooks", "stack":"react"},
+                { "link" : "27.html" , "description" : "python itermediate list tricks", "stack":"python"},
+                { "link" : "28.html" , "description" : "python os library", "stack":"python"},
+                { "link" : "29.html" , "description" : "python itermediate dictionary tricks", "stack":"python"},
+                { "link" : "30.html" , "description" : "python itermediate collection tricks", "stack":"python"},
+                { "link" : "31.html" , "description" : "flask create helper file", "stack":"flask"},
             ]
+
+            window.addEventListener("load", function(){
+                var stacks = [
+                    "python", "docker", "react", "flask"
+                    ].forEach((value)=>{
+                        var opt = document.createElement("option");
+                        opt.value = value;
+                        opt.text = value;
+                        document.getElementById("stack").append(opt)
+                    })
+            });
 
             var listed = []
 
@@ -30,7 +56,7 @@
 
                 document.getElementById("resultContainer").innerHTML =""
 
-                let searchText = document.getElementById("searchText").value
+                let searchText = document.getElementById("searchText").value.toLowerCase()
                 listed = []
 
                 for (let i=0;i<index.length;i++) {
@@ -64,12 +90,39 @@
                 document.getElementById("resultForm").style.display = "none"
             }
 
+            function listByStack() {
+                document.getElementById("resultContainer").innerHTML ="";
+                listed = [];
+                console.log(document.getElementById("stack").value)
+                for (let i=0;i<index.length;i++) {
+                    if (index[i].stack == document.getElementById("stack").value) {
+                        listed.push(index[i])
+                        document.getElementById("resultContainer").innerHTML += `
+                            <div class="result-strip" onClick="openPage('${index[i].link}')">
+                                ${index[i].description}
+                            </div>
+                        `
+                    }
+                }
+
+                if (document.getElementById("resultForm").style.display == "block") {
+                    document.getElementById("resultForm").style.display = "none"
+                } else (
+                    document.getElementById("resultForm").style.display = "block"
+                )
+
+            }
+
         </script>
 
         <div class="search-form">
             <label>Search</label>
             <input type="text" id="searchText" onkeydown="list()" />
             <button onClick="list()">List</button>
+
+            <label>List by Stack</label>
+            <select id="stack"></select>
+            <button onClick="listByStack()">List</button>
         </div>
 
         <iframe id="mainFrame">
@@ -119,6 +172,7 @@
                 width : 550px;
                 min-height : 200px;
                 border-radius: 4px;
+                overflow : scroll;
             }
             .cancel-button {
                 width : 25px;

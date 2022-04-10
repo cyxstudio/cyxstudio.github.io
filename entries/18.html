@@ -1,0 +1,19 @@
+<!--
+    link : 18.html
+    description : create route file
+    stack : flask 
+
+-->
+<plaintext>
+
+create route file for flask
+
+app.py 
+from routes.member.book import book_member
+
+dir
+routes/member/book.py
+
+book_member = Blueprint('book_member', __name__)
+
+@book_member.route("/member/book", methods=["GET", "POST"])

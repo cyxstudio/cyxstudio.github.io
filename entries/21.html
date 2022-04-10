@@ -1,0 +1,46 @@
+<!--
+    link : 21.html
+    description : virtual environment
+    stack : python 
+
+-->
+<plaintext>
+
+    A virtual environment is a Python environment such that the Python interpreter, libraries and scripts installed into it are isolated from those installed in other virtual environments, and (by default) any libraries installed in a “system” Python, i.e., one which is installed as part of your operating system.
+    
+    A virtual environment is a directory tree which contains Python executable files and other files which indicate that it is a virtual environment.
+
+    Why do we need a virtual environment?
+
+    A virtual environment is used to create an isolated Python environment for different projects. We create virtual environments because different projects have different dependencies. Also, it helps to keep the global packages folder clean.
+    
+    So now open the terminal type the below command:
+    
+    pip3 install virtualenv
+    Once it’s installed, let’s create a directory or folder for your project. We are using flask-test as the folder name, but you can pick any name for your project.
+    
+    mkdir flask-test
+    Then, change the directory:
+    
+    cd flask-test
+    Now it’s time to create a virtual environment for our project so that the dependencies don’t mess up the global package folder.
+    
+    Execute the below command now:
+    
+    virtualenv .
+    And then,
+    
+    source bin/activate
+    Explanation: What we are doing here is we are telling the module that the current folder can be used for the virtual environment, and then it is activating the virtual environment in the second step.
+    
+    Now once you have activated the virtual environment, let’s install the Flask package in that environment.
+    
+    Now run the below command:
+    
+    Python3 -m pip install Flask
+    So far, we have created our project folder, installed and created a virtual environment for our project, and installed Flask in the environment. Let’s head towards Step 2.
+
+
+
+pip install pipenv <-- to install pipenv
+pipenv --venv

@@ -1,0 +1,37 @@
+<!--
+    link : 28.html
+    description : python os library
+    stack : python 
+
+-->
+<plaintext>
+
+
+    python OS library 
+
+    library for manipulating directory
+
+    os.getcwd() = get current working directory
+
+    dir(os) = show all attributes and methods we have access
+
+    os.chdir('<path>') = change directory to <path>
+
+    os.mkdir(<path>) / os.makedirs(<path) = create directory
+
+    os.listdir() = returns a list containing the names of the entries in the directory given by path
+
+    os.rmdir(<path>) / os.removedirs(<path>) = remove directory
+
+    os.rename(<old file>, <new file>) = rename file
+
+    os.stat(<file name>)
+        .st_mtime = return last modified in format of timestamp
+        
+
+    os.walk(<path>) generates the file names in a directory tree by walking the tree either top-down or bottom-up.
+        for dirpath, dirnames, filenames in os.walk("C:/test"):
+
+    os.environ.get('HOME')  = access environmental variable called home. Home = home directory
+
+    os.path.join(<1>,<2>) = joins two path together

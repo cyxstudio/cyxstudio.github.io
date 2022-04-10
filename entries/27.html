@@ -1,0 +1,64 @@
+<!--
+    link : 27.html
+    description : python itermediate list tricks
+    stack : python 
+
+-->
+<plaintext>
+
+    python itermediate list tricks
+
+    ["banana", "cherry", "apple"]
+
+    1) Loop through list
+    for i in mylist:
+
+    2) check if item in List
+    if "banana" in mylist:
+
+    3) get length of List
+    len(mylist)
+
+    4) add item to back of list
+    mylist.append("lemon")
+    
+    5) add item to specific position
+    mylist.insert(1,"blueberry"
+    
+    6) Remove item at specific index 
+    -if no index given, remove last item
+    -returns item removed
+
+    mylist.pop(<i>) 
+    mylist.pop()
+
+    7)  remove specific element
+    -if item not exists, get error
+    mylist.remove("cherry")
+
+    8) reserve List
+    mylist.reverse()
+
+    9) sort List (using numbers)
+    mylist.sort()
+
+    if wish to return new list
+    new_list = sorted(mylist)
+
+    10) create a list of 5 same items
+    mylist = [0]*5 = [0,0,0,0,0]
+    
+    11) add two List
+    list2 = old_list + newlist
+
+    12) filter list by index
+    mylist = [1,2,3,4,5,6,7,8]
+    a = mylist[1:5]
+    b = mylist[:5] // starts from beginning
+    c = mylist[1:] // goes to the getElementById
+    d = mylist[::1] // step 1
+    e = mylist[::2] // step 2
+    f = mylist[::-1] // reverse List
+    
+    13) copy new List
+    list_new = list_old[:]
